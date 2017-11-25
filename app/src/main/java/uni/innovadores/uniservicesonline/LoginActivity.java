@@ -39,7 +39,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 		EdtPass = findViewById(R.id.edt_pass);
 		BtLogin = findViewById(R.id.btn_login);
 		//BtReg = findViewById(R.id.btn_reg);
-
 		BtLogin.setOnClickListener(this);
 
 	}
