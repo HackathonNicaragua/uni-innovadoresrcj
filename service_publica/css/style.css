@@ -105,7 +105,7 @@ li {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: none !important;
+    background-color: #ff5722 !important;
 }
 
 
@@ -116,7 +116,7 @@ li {
 
 .navbar-default {
     border-color: transparent;
-    background-color: #222;
+    background-color: #ff5722;
 }
 
 .navbar-default .navbar-brand {
@@ -139,6 +139,7 @@ li {
     letter-spacing: 1px;
     color: #212121;
     font-size: 12px;
+	font-weight: bold;
 }
 
 
@@ -1615,7 +1616,7 @@ footer.style-1 .footer-link li {
 }
 
 .call-to-action .btn-primary:hover {
-    background: transparent;
+    background: #ff5722;
 }
 
 
