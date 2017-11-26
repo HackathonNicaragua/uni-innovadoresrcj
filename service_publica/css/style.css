@@ -62,7 +62,7 @@ li {
 }
 
 .white-text {
-    color: #fff !important;
+    color: #999 !important;
 }
 
 .section-title h3{
@@ -1768,14 +1768,14 @@ footer.style-1 .footer-link li {
 
 .pricing-section {
     padding: 80px 0;
-    background: url(../images/parallax/pricing-bg.jpg);
+    background-color:#f7f7f7;
     background-attachment: fixed;
     background-size: cover;
     background-position: 50% 50%;
 }
 
 .pricing-section .section-title h3 {
-    color: #fff;
+    color: #666;
 }
 
 .pricing-table {
