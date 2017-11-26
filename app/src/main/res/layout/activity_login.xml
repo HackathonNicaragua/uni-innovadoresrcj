@@ -58,7 +58,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/rLayout"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:layout_below="@+id/network_check"
@@ -97,7 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/textView"
-        android:layout_below="@+id/linearLayout"
+        android:layout_below="@+id/rLayout"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 

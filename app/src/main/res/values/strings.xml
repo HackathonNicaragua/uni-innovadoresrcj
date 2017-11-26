@@ -14,4 +14,5 @@
     <string name="txt_registrate_aqui">Aún no estas registraado? - Registrate AQUI!</string>
     <string name="txt_copyR">Todos los derechos reservados 2017</string>
     <string name="txt_btnLogin_local">Usar sin conexion</string>
+    <string name="demo_cat_nombre">Nombre Categoria</string>
 </resources>

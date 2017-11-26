@@ -24,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import uni.innovadores.uniservicesonline.datos.info;
+import uni.innovadores.uniservicesonline.models.Categorias;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,9 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 	public static final String KEY_USERNAME = "username";
 	public static final String KEY_PASSWORD = "password";
 	private EditText EdtUser, EdtPass;
-	private Button BtLogin, BtLocal;
 	private ProgressDialog pDialog;
-	private TextView TxRegistrar;
 	ConnectivityManager cm;
 
 	@Override
@@ -52,16 +51,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 		EdtUser = findViewById(R.id.edt_user);
 		EdtPass = findViewById(R.id.edt_pass);
-		TxRegistrar = findViewById(R.id.txt_register);
-		BtLogin = findViewById(R.id.btn_login);
-		BtLocal = findViewById(R.id.btn_login_local);
+		TextView txRegistrar = findViewById(R.id.txt_register);
+		Button btLogin = findViewById(R.id.btn_login);
+		Button btLocal = findViewById(R.id.btn_login_local);
 
 		//BtLogin.setVisibility(View.VISIBLE);
-		BtLocal.setVisibility(View.GONE);
+		btLocal.setVisibility(View.GONE);
 
-		BtLogin.setOnClickListener(this);
+		btLogin.setOnClickListener(this);
 
-		BtLocal.setOnClickListener(this);
+		btLocal.setOnClickListener(this);
 
 		//comprobando conexion a internet
 		if (isOnline()){
@@ -69,9 +68,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 		}else{
 			network_CK.setVisibility(View.VISIBLE);
 			network_CK.startAnimation(animationScale);
-			BtLogin.setVisibility(View.GONE);
-			TxRegistrar.setVisibility(View.GONE);
-			BtLocal.setVisibility(View.VISIBLE);
+			btLogin.setVisibility(View.GONE);
+			txRegistrar.setVisibility(View.GONE);
+			btLocal.setVisibility(View.VISIBLE);
 			EdtUser.setEnabled(false);
 			EdtPass.setEnabled(false);
 			EdtUser.setHintTextColor(getResources().getColor(R.color.colorSecondaryText));
@@ -91,7 +90,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 		final String password = EdtPass .getText().toString().trim();
 
 		//Enviando solicitud http post para obtener resultado del login segun los parametos de los editext
-		StringRequest stringRequest = new StringRequest(Request.Method.POST, info.LOGIN_URL+"?username="+username+"&passwd="+password,
+		StringRequest stringRequest = new StringRequest(Request.Method.POST, info.Serv_URL+"?username="+username+"&passwd="+password,
 				new Response.Listener<String>() {
 					@Override
 					public void onResponse(String response) {
@@ -99,7 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 						if(response.contentEquals("Inicio Correcto")){
 							OcultarPDialog();
 							Toast.makeText(LoginActivity.this,"Bienvenido!",Toast.LENGTH_LONG).show();
-							Intent it_main = new Intent(getApplicationContext(), ServiciosActivity.class);
+							Intent it_main = new Intent(getApplicationContext(), CategoriasActivity.class);
 							startActivity(it_main);
 							EdtPass.setText("");
 							EdtUser.setText("");
@@ -128,7 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 				}){
 			@Override
 			protected Map<String,String> getParams(){
-				Map<String,String> params = new HashMap<String, String>();
+				Map<String,String> params = new HashMap<>();
 				params.put(KEY_USERNAME,username);
 				params.put(KEY_PASSWORD,password);
 				return params;

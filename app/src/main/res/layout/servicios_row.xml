@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/rLayout"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_alignParentTop="true"
@@ -18,9 +18,9 @@
             android:id="@+id/img_serv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/logo_text"
             android:padding="5dp"
-            app:srcCompat="@drawable/services"
-            android:contentDescription="@string/logo_text"/>
+            app:srcCompat="@drawable/services"/>
     </LinearLayout>
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout"
+        android:layout_below="@+id/rLayout"
         android:layout_margin="5dp"
         android:text="@string/demo_srv_nombre"
         android:textSize="16sp"

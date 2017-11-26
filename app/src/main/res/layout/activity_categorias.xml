@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="uni.innovadores.uniservicesonline.CategoriasActivity">
+
+    <RelativeLayout
+        android:id="@+id/network_check"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/tvSeparador"
+        android:alpha="0.8"
+        android:background="@color/netwokBg">
+
+        <ImageView
+            android:id="@+id/img_netwk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="11dp"
+            android:alpha="0.6"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            app:srcCompat="@drawable/nchk"
+            android:contentDescription="@string/imgnchk"/>
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toEndOf="@+id/img_netwk"
+            android:text="@string/txt_networCHK"
+            android:textSize="12sp"
+            android:textStyle="normal|italic"/>
+    </RelativeLayout>
+
+    <pl.droidsonroids.gif.GifTextView
+        android:id="@+id/Gloader"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/loader"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/logo_text"
+            app:srcCompat="@drawable/logouniservicios"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_cat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"/>
+
+    <TextView
+        android:id="@+id/tvSeparador"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout2"
+        android:background="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/network_check"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="SELECCIONE UNA CATEGORIA"
+        android:textStyle="bold"/>
+</RelativeLayout>

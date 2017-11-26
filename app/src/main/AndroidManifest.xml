@@ -21,7 +21,6 @@
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-
         <activity android:name=".ServiciosActivity">
         </activity>
 
@@ -36,6 +35,8 @@
             </intent-filter>
         </service>
 
+        <activity android:name=".CategoriasActivity">
+        </activity>
     </application>
 
 </manifest>

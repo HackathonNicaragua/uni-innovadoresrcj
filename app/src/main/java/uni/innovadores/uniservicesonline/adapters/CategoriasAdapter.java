@@ -13,30 +13,31 @@ import android.widget.TextView;
 import java.util.List;
 
 import uni.innovadores.uniservicesonline.R;
+import uni.innovadores.uniservicesonline.models.Categorias;
 import uni.innovadores.uniservicesonline.models.Servicios;
 
 /**
  * Created by Javier Gutierrez on 25/11/2017.
  */
 
-public class ServiciosAdapter extends BaseAdapter {
+public class CategoriasAdapter extends BaseAdapter {
 	private Activity activity;
 	private LayoutInflater inflater;
-	private List<Servicios> serviciosItems;
+	private List<Categorias> categoriasItems;
 
-	public ServiciosAdapter(Activity activity, List<Servicios> serviciosItems) {
+	public CategoriasAdapter(Activity activity, List<Categorias> categoriasItems) {
 		this.activity = activity;
-		this.serviciosItems = serviciosItems;
+		this.categoriasItems = categoriasItems;
 	}
 
 	@Override
 	public int getCount() {
-		return serviciosItems.size();
+		return categoriasItems.size();
 	}
 
 	@Override
 	public Object getItem(int location) {
-		return serviciosItems.get(location);
+		return categoriasItems.get(location);
 	}
 
 	@Override
@@ -51,25 +52,22 @@ public class ServiciosAdapter extends BaseAdapter {
 			inflater = (LayoutInflater) activity
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		if (convertView == null)
-			convertView = inflater.inflate(R.layout.servicios_row, null);
+			convertView = inflater.inflate(R.layout.categorias_row, null);
 
-		TextView NServicio = convertView.findViewById(R.id.tv_name_cat);
-		TextView DServicio = convertView.findViewById(R.id.tv_descr_cat);
-		TextView precioServicio = convertView.findViewById(R.id.tv_precio);
-		RatingBar puntServicio = convertView.findViewById(R.id.rtb_punt);
+		TextView IDCat = convertView.findViewById(R.id.tx_cat_id);
+		TextView NamCat = convertView.findViewById(R.id.tv_name_cat);
+		TextView DescCat = convertView.findViewById(R.id.tv_descr_cat);
 		ImageView IMGServicio = convertView.findViewById(R.id.img_cat);
 
 		try{
 
-			Servicios srv = serviciosItems.get(position);
+			Categorias cat = categoriasItems.get(position);
 
 			//Picasso.with(convertView.getContext()).load(srv.getThumbnailUrl()).into(IMGServicio);
 
-			NServicio.setText(srv.getNombreServ());
-			DServicio.setText(srv.getDescrServ());
-			String PreC = activity.getString(R.string.init_precio)+String.valueOf(srv.getPrecioServ());
-			precioServicio.setText(PreC);
-			puntServicio.setRating(Float.parseFloat(String.valueOf(srv.getPuntuacion())));
+			IDCat.setText(String.valueOf(cat.getIdCat()));
+			NamCat.setText(cat.getNombreCat());
+
 			//img1.setText(srv.getThumbnailUrl());
 			//img2.setText(srv.getThumbnailUrl2());
 		}catch(Exception e){

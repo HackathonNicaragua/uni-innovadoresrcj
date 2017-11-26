@@ -5,15 +5,16 @@ package uni.innovadores.uniservicesonline.models;
  */
 
 public class Categorias {
-	private String NombreCat;
+	private String NombreCat, DesCat;
 	private int IdCat, estado;
 
 
 	public Categorias() {
 	}
 
-	public Categorias(String NombreCat, int IdCat, int estado) {
+	public Categorias(String NombreCat, String DesCat, int IdCat, int estado) {
 		this.NombreCat = NombreCat;
+		this.DesCat = DesCat;
 		this.IdCat = IdCat;
 		this.estado = estado;
 	}
@@ -26,6 +27,14 @@ public class Categorias {
 
 	public void setNombreCat(String NombreCat) {
 		this.NombreCat = NombreCat;
+	}
+
+	public String getDesCat() {
+		return DesCat;
+	}
+
+	public void setDesCat(String DesCat) {
+		this.DesCat = DesCat;
 	}
 
 	public int getIdCat() {

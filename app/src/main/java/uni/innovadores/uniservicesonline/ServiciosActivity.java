@@ -27,6 +27,7 @@ import java.util.List;
 
 import pl.droidsonroids.gif.GifTextView;
 import uni.innovadores.uniservicesonline.adapters.ServiciosAdapter;
+import uni.innovadores.uniservicesonline.datos.info;
 import uni.innovadores.uniservicesonline.models.Servicios;
 
 public class ServiciosActivity extends AppCompatActivity {
@@ -75,7 +76,7 @@ public class ServiciosActivity extends AppCompatActivity {
     //Cargando lista de servicios (prueba)
     public void CargarServicios(){
 
-        String url ="http://hostingnica.net/apps/uniservices/test/funciones.php?run=ObtenerServicios";
+        String url = info.Serv_URL+"?run=ObtenerServicios";
 
         StringRequest stringRequest = new StringRequest( url,
                 new Response.Listener<String>() {
