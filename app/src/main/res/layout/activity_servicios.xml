@@ -9,6 +9,15 @@
     tools:context="uni.innovadores.uniservicesonline.ServiciosActivity">
 
     <RelativeLayout
+        android:id="@+id/lay_menu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/menuap">
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/network_check"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -70,9 +79,9 @@
         android:id="@+id/list_serv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/network_check"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"/>
+        android:layout_above="@+id/lay_menu"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/network_check"/>
 
     <TextView
         android:id="@+id/tvSeparador"

@@ -41,7 +41,7 @@ public class Categorias {
 		return IdCat;
 	}
 
-	public void setIdCat(int idServ) {
+	public void setIdCat(int IdCat) {
 		this.IdCat = IdCat;
 	}
 

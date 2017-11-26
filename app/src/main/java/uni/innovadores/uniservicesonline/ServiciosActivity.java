@@ -1,6 +1,7 @@
 package uni.innovadores.uniservicesonline;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
@@ -69,6 +71,15 @@ public class ServiciosActivity extends AppCompatActivity {
         adapter = new ServiciosAdapter(this, serviciosList);
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
+                startActivity(it_main);
+            }
+        });
+
         new ConsultarDatos().execute();
 
     }
@@ -76,7 +87,8 @@ public class ServiciosActivity extends AppCompatActivity {
     //Cargando lista de servicios (prueba)
     public void CargarServicios(){
 
-        String url = info.Serv_URL+"?run=ObtenerServicios";
+        //String url = info.Serv_URL+"?run=ObtenerServicios";
+        String url ="http://hostingnica.net/apps/uniservices/test/funciones.php?run=ObtenerServicios";
 
         StringRequest stringRequest = new StringRequest( url,
                 new Response.Listener<String>() {

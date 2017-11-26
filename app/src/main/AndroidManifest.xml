@@ -37,6 +37,8 @@
 
         <activity android:name=".CategoriasActivity">
         </activity>
+        <activity android:name=".ContactarActivity">
+        </activity>
     </application>
 
 </manifest>

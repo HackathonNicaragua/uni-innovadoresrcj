@@ -157,7 +157,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 		}
 
 		if(view.getId() == R.id.btn_login_local){
-			Intent it_main = new Intent(getApplicationContext(), ServiciosActivity.class);
+			Intent it_main = new Intent(getApplicationContext(), CategoriasActivity.class);
 			startActivity(it_main);
 		}
 	}
