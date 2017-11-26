@@ -75,7 +75,7 @@ public class ServiciosAdapter extends BaseAdapter {
 			//img1.setText(srv.getThumbnailUrl());
 			//img2.setText(srv.getThumbnailUrl2());
 		}catch(Exception e){
-			System.out.print(e+"=Exception Reason!");
+			System.out.print(e+"!");
 		}
 		finally{
 

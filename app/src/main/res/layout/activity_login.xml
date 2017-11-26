@@ -17,10 +17,11 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/fheadpapp"/>
+            android:background="@drawable/fheadpapp"
+            android:contentDescription="@string/img_header"/>
     </LinearLayout>
 
     <LinearLayout
@@ -29,12 +30,12 @@
         android:layout_height="240dp"
         android:layout_below="@+id/ContLogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="0dp"
         android:background="@drawable/login_box"
         android:orientation="vertical"
-        android:paddingLeft="22dp"
-        android:paddingRight="20dp">
+        android:paddingEnd="20dp"
+        android:paddingStart="22dp">
 
         <EditText
             android:id="@+id/edt_user"
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:ems="10"
-            android:hint="e-mail"
+            android:hint="@string/hint_mail"
             android:inputType="textEmailAddress"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"/>
@@ -53,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:hint="***********"
+            android:hint="@string/hint_pass"
             android:inputType="textPassword"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"/>
@@ -75,17 +76,17 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:background="@color/colorAccent"
-            android:text="Iniciar Sesion"
+            android:text="@string/txt_btnLogin"
             android:textColor="#ffffff"/>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txt_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_login"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:text="Aún no estas registraado? - Registrate AQUI!"/>
+            android:text="@string/txt_registrate_aqui"/>
 
     </android.support.percent.PercentRelativeLayout>
 
@@ -97,7 +98,7 @@
         android:layout_centerHorizontal="true"
         android:background="@color/colorPrimaryDark"
         android:gravity="center_vertical|center_horizontal"
-        android:text="Todos los derechos reservados 2017"
+        android:text="@string/txt_copyR"
         android:textColor="#ffffff"/>
 
 </RelativeLayout>

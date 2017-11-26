@@ -24,6 +24,7 @@ public class Servicios {
 	}
 
 
+	//Metodos Get y Set
 	public String getNombreServ() {
 		return NombreServ;
 	}

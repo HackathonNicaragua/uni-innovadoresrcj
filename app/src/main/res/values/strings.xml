@@ -7,4 +7,10 @@
     <string name="demo_SrvDesc">Aqui va una descripccion del servicio</string>
     <string name="demo_serv_precio">Desde: C$1500</string>
     <string name="demo_srv_nombre">Nombre del Servicio</string>
+    <string name="img_header">header</string>
+    <string name="hint_mail">e-mail</string>
+    <string name="hint_pass">***********</string>
+    <string name="txt_btnLogin">Iniciar Sesion</string>
+    <string name="txt_registrate_aqui">Aún no estas registraado? - Registrate AQUI!</string>
+    <string name="txt_copyR">Todos los derechos reservados 2017</string>
 </resources>

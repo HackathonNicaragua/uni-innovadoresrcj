@@ -60,8 +60,6 @@
             android:id="@+id/img_logo"
             android:layout_width="0dp"
             android:layout_height="80dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_weight="1"
             android:contentDescription="@string/logo_text"
             app:srcCompat="@drawable/logouniservicios"/>

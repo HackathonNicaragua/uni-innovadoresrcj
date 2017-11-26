@@ -47,6 +47,7 @@ public class ServiciosActivity extends AppCompatActivity {
         final Animation animationScale = AnimationUtils.loadAnimation(this, R.anim.scale);
         View network_CK = findViewById(R.id.network_check);
 
+        //comprobando conexion a internet
         if (isOnline()){
             network_CK.setVisibility(View.GONE);
         }else{
@@ -71,6 +72,7 @@ public class ServiciosActivity extends AppCompatActivity {
 
     }
 
+    //Cargando lista de servicios (prueba)
     public void CargarServicios(){
 
         String url ="http://hostingnica.net/apps/uniservices/test/funciones.php?run=ObtenerServicios";
@@ -82,6 +84,7 @@ public class ServiciosActivity extends AppCompatActivity {
 
                         System.out.print("La respuesta es: "+ response);
 
+                        //Gardando datos en las sharedPreferences para disponibilidad sin conexion
                         editor.putString("Serviciosjson", response);
                         editor.commit();
                         String js = prefs.getString("Serviciosjson", "Servicios");
@@ -196,6 +199,7 @@ public class ServiciosActivity extends AppCompatActivity {
         protected void onProgressUpdate(Void... values) {}
     }
 
+    //Metodo para comprobar la conexion a internet
     public boolean isOnline() {
         cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
 
