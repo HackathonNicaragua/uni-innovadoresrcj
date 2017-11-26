@@ -67,6 +67,7 @@ public class CategoriasAdapter extends BaseAdapter {
 
 			IDCat.setText(String.valueOf(cat.getIdCat()));
 			NamCat.setText(cat.getNombreCat());
+			DescCat.setText(cat.getDesCat());
 
 			//img1.setText(srv.getThumbnailUrl());
 			//img2.setText(srv.getThumbnailUrl2());

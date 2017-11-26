@@ -230,7 +230,7 @@ public class CategoriasActivity extends AppCompatActivity implements View.OnClic
 		}
 
 		if(view.getId() == R.id.btn_favo){
-			Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
+			Intent it_main = new Intent(getApplicationContext(), FavoritosActivity.class);
 			startActivity(it_main);
 			finish();
 		}

@@ -11,7 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-public class NotifiActivity extends AppCompatActivity implements View.OnClickListener {
+public class FavoritosActivity extends AppCompatActivity implements View.OnClickListener {
 
 	private Button Bthome, BtCat, BtNotif, BtFav, BtPerfil;
 	ConnectivityManager cm;
@@ -19,7 +19,7 @@ public class NotifiActivity extends AppCompatActivity implements View.OnClickLis
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_notifi);
+		setContentView(R.layout.activity_favoritos);
 
 		final Animation animationScale = AnimationUtils.loadAnimation(this, R.anim.scale);
 		View network_CK = findViewById(R.id.network_check);
@@ -43,34 +43,6 @@ public class NotifiActivity extends AppCompatActivity implements View.OnClickLis
 		BtNotif.setOnClickListener(this);
 		BtFav.setOnClickListener(this);
 		BtPerfil.setOnClickListener(this);
-	}
-
-	@Override
-	public void onClick(View view) {
-		if(view.getId() == R.id.btn_home){
-			Intent it_main = new Intent(getApplicationContext(), MainActivity.class);
-			startActivity(it_main);
-		}
-
-		if(view.getId() == R.id.btn_cat){
-			Intent it_main = new Intent(getApplicationContext(), CategoriasActivity.class);
-			startActivity(it_main);
-		}
-
-		if(view.getId() == R.id.btn_notif){
-			//Intent it_main = new Intent(getApplicationContext(), NotifiActivity.class);
-			//startActivity(it_main);
-		}
-
-		if(view.getId() == R.id.btn_favo){
-			Intent it_main = new Intent(getApplicationContext(), FavoritosActivity.class);
-			startActivity(it_main);
-		}
-
-		if(view.getId() == R.id.btn_perfil){
-			Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
-			startActivity(it_main);
-		}
 
 	}
 
@@ -93,9 +65,36 @@ public class NotifiActivity extends AppCompatActivity implements View.OnClickLis
 		return false;
 	}
 
+	@Override
+	public void onClick(View view) {
+		if(view.getId() == R.id.btn_home){
+			Intent it_main = new Intent(getApplicationContext(), MainActivity.class);
+			startActivity(it_main);
+		}
+
+		if(view.getId() == R.id.btn_cat){
+			Intent it_main = new Intent(getApplicationContext(), CategoriasActivity.class);
+			startActivity(it_main);
+		}
+
+		if(view.getId() == R.id.btn_notif){
+			Intent it_main = new Intent(getApplicationContext(), NotifiActivity.class);
+			startActivity(it_main);
+		}
+
+		if(view.getId() == R.id.btn_favo){
+			//Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
+			//startActivity(it_main);
+		}
+
+		if(view.getId() == R.id.btn_perfil){
+			Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
+			startActivity(it_main);
+		}
+	}
+
 	public void onBackPressed() {
 		//super.onBackPressed();
 		//finish();
 	}
-
 }
