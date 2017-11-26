@@ -32,7 +32,7 @@ if(isset($_SESSION['user'])) {
             <div class="row">
               <!-- Parte Superior -->
                 <div class="col-lg-12">
-                        <div class="col-md-3"><img src="../imagenes/logo.png" width="80" height="80" class="img-responsive"></div>
+                  <div class="col-md-3"><img src="../imagenes/logouniservicios.png" width="150" height="100" class="img-responsive"></div>
                              <div class="col-md-6">                      
                                <h2>Sistema Administrativo Uniservices</h2>                   
                         </div>
@@ -111,28 +111,34 @@ if(isset($_SESSION['user'])) {
         <div class="col-md-10"><input type="text" class="form-control" required readonly id="pro" name="pro" hidden="true" /></div>
          </div> <br>
 
-         <div class="form-group"> <label for="nombre" class="col-md-2 control-label">Nombre Completo:</label>
+         <div class="form-group"> <label for="nombre" class="col-md-2 control-label">Nombre:</label>
         <div class="col-md-10"><input type="text" class="form-control" id="nombres" name="nombres" required="true" maxlength="50"></div>
          </div><br>
 
           <div class="form-group"> <label for="nombre" class="col-md-2 control-label">Email:</label>
-        <div class="col-md-10"><input type="text" class="form-control" id="apellidos" name="apellidos" required="true" maxlength="50"></div>
+        <div class="col-md-10"><input type="text" class="form-control" id="email" name="email" required="true" maxlength="50"></div>
          </div><br>
 
          <div class="form-group"> <label for="cedula" class="col-md-2 control-label">User:</label>
-        <div class="col-md-10"><input type="text" class="form-control" id="cedula" name="cedula" required="true" maxlength="16"></div>
+        <div class="col-md-10"><input type="text" class="form-control" id="user" name="user" required="true" maxlength="16"></div>
          </div><br>
 
         <div class="form-group"> <label for="correo" class="col-md-2 control-label">Pass:</label>
-        <div class="col-md-10"><input type="number" class="form-control" id="telefono" name="telefono" required="true" maxlength="50"></div>
+        <div class="col-md-10"><input type="text" class="form-control" id="pass" name="pass" required="true" maxlength="50"></div>
          </div><br>
 
         <div class="form-group"> <label for="correo" class="col-md-2 control-label">Token:</label>
-        <div class="col-md-10"><input type="emai" class="form-control" id="correo" name="correo" required="true" maxlength="50"></div>
+        <div class="col-md-10"><input type="text" class="form-control" id="token" name="token" required="true" maxlength="50"></div>
          </div><br>
 
-          <div class="form-group"> <label for="correo" class="col-md-2 control-label">Nivel:</label>
-        <div class="col-md-10"><input type="emai" class="form-control" id="nivel" name="nivel" required="true" maxlength="50"></div>
+         <div class="form-group"> <label for="celular" class="col-md-2 control-label">Nivel:</label>
+        <div class="col-md-10">
+           <select class="form-control" id="nivel" name="nivel" required="true">
+                      <option>Admin</option>
+                       <option>User1</option>
+                        <option>User2</option>
+          </select>
+        </div>
          </div><br>
 
          <div class="form-group"> <label for="celular" class="col-md-2 control-label">Estado:</label>

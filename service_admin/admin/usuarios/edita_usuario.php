@@ -1,17 +1,18 @@
 <?php
 include('../conexion.php');
 $id = $_POST['id'];
-$valores = $dbconfig->query("SELECT * FROM afiliados WHERE idAfiliado = '$id'");
+$valores = $dbconfig->query("SELECT * FROM usuarios WHERE idUsuario = '$id'");
 $valores2 = mysqli_fetch_array($valores);
 $datos = array(
 				 
-				0 => $valores2['nombresA'], 
-			    1 => $valores2['apellidosA'], 
-				2 => $valores2['cedulaA'], 
-				3 => $valores2['telefonoA'], 
-				4 => $valores2['correoA'], 
-				5 => $valores2['estadoA'], 
-			    6 => $valores2['observacionesA'], 
+				0 => $valores2['nombreCompleto'], 
+			    1 => $valores2['email'], 
+				2 => $valores2['user'], 
+				3 => $valores2['pass'], 
+				4 => $valores2['token'], 
+				5 => $valores2['nivel'], 
+				6 => $valores2['estadoU'], 
+			    7 => $valores2['observacionesC'], 
 				); 
 echo json_encode($datos);
 ?>
