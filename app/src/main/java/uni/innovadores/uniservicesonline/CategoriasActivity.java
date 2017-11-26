@@ -215,6 +215,7 @@ public class CategoriasActivity extends AppCompatActivity implements View.OnClic
 		if(view.getId() == R.id.btn_home){
 			Intent it_main = new Intent(getApplicationContext(), MainActivity.class);
 			startActivity(it_main);
+			finish();
 		}
 
 		if(view.getId() == R.id.btn_cat){
@@ -223,18 +224,21 @@ public class CategoriasActivity extends AppCompatActivity implements View.OnClic
 		}
 
 		if(view.getId() == R.id.btn_notif){
-			Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
+			Intent it_main = new Intent(getApplicationContext(), NotifiActivity.class);
 			startActivity(it_main);
+			finish();
 		}
 
 		if(view.getId() == R.id.btn_favo){
 			Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
 			startActivity(it_main);
+			finish();
 		}
 
 		if(view.getId() == R.id.btn_perfil){
 			Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
 			startActivity(it_main);
+			finish();
 		}
 	}
 
@@ -275,6 +279,11 @@ public class CategoriasActivity extends AppCompatActivity implements View.OnClic
 			}
 		}
 		return false;
+	}
+
+	public void onBackPressed() {
+		//super.onBackPressed();
+		//finish();
 	}
 
 }
