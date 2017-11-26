@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,7 +35,7 @@ import uni.innovadores.uniservicesonline.datos.info;
 import uni.innovadores.uniservicesonline.models.Categorias;
 import uni.innovadores.uniservicesonline.models.Servicios;
 
-public class CategoriasActivity extends AppCompatActivity {
+public class CategoriasActivity extends AppCompatActivity implements View.OnClickListener {
 
 	private List<Categorias> categoriasList = new ArrayList<>();
 	private CategoriasAdapter adapter;
@@ -44,6 +45,7 @@ public class CategoriasActivity extends AppCompatActivity {
 	RequestQueue queue;
 	private GifTextView loader;
 	ConnectivityManager cm;
+	private Button Bthome, BtCat, BtNotif, BtFav, BtPerfil;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,18 @@ public class CategoriasActivity extends AppCompatActivity {
 			network_CK.setVisibility(View.VISIBLE);
 			network_CK.startAnimation(animationScale);
 		}
+
+		Bthome = findViewById(R.id.btn_home);
+		BtCat = findViewById(R.id.btn_cat);
+		BtNotif = findViewById(R.id.btn_notif);
+		BtFav = findViewById(R.id.btn_favo);
+		BtPerfil = findViewById(R.id.btn_perfil);
+
+		Bthome.setOnClickListener(this);
+		BtCat.setOnClickListener(this);
+		BtNotif.setOnClickListener(this);
+		BtFav.setOnClickListener(this);
+		BtPerfil.setOnClickListener(this);
 
 		ListView listView = findViewById(R.id.list_cat);
 
@@ -194,6 +208,34 @@ public class CategoriasActivity extends AppCompatActivity {
 			}
 		});
 		queue.add(stringRequest);
+	}
+
+	@Override
+	public void onClick(View view) {
+		if(view.getId() == R.id.btn_home){
+			Intent it_main = new Intent(getApplicationContext(), MainActivity.class);
+			startActivity(it_main);
+		}
+
+		if(view.getId() == R.id.btn_cat){
+//			Intent it_main = new Intent(getApplicationContext(), CategoriasActivity.class);
+//			startActivity(it_main);
+		}
+
+		if(view.getId() == R.id.btn_notif){
+			Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
+			startActivity(it_main);
+		}
+
+		if(view.getId() == R.id.btn_favo){
+			Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
+			startActivity(it_main);
+		}
+
+		if(view.getId() == R.id.btn_perfil){
+			Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
+			startActivity(it_main);
+		}
 	}
 
 	private  class ConsultarDatos extends AsyncTask<String, Void, String> {
