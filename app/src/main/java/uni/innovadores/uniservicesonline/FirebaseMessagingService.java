@@ -61,11 +61,9 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 
 
     private void showNotification(String title, String message ) {
-        Intent i = new Intent(this,MainActivity.class);
+        Intent i = new Intent(this,NotifiActivity.class);
         i.putExtra("title", title);
         i.putExtra("message", message);
-        i.putExtra("dest", destino);
-        i.putExtra("update", versionc);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         final String packageName = getPackageName();

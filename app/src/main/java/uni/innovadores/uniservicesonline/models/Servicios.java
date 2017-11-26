@@ -5,7 +5,7 @@ package uni.innovadores.uniservicesonline.models;
  */
 
 public class Servicios {
-	private String NombreServ, DescrServ, CategoriaServ;
+	private String NombreServ, DescrServ, CategoriaServ, IMG;
 	private int idServ, estado;
 	private double PrecioServ, Puntuacion;
 
@@ -13,9 +13,10 @@ public class Servicios {
 	public Servicios() {
 	}
 
-	public Servicios(String NombreServ, String DescrServ, String CategoriaServ, int idServ, int estado, double PrecioServ, double Puntuacion) {
+	public Servicios(String NombreServ, String DescrServ, String IMG, String CategoriaServ, int idServ, int estado, double PrecioServ, double Puntuacion) {
 		this.NombreServ = NombreServ;
-		this.DescrServ = DescrServ;
+		this.DescrServ = IMG;
+		this.DescrServ = IMG;
 		this.CategoriaServ = CategoriaServ;
 		this.idServ = idServ;
 		this.estado = estado;
@@ -31,6 +32,14 @@ public class Servicios {
 
 	public void setNombreServ(String NombreServ) {
 		this.NombreServ = NombreServ;
+	}
+
+	public String getIMG() {
+		return IMG;
+	}
+
+	public void setIMG(String IMG) {
+		this.IMG = IMG;
 	}
 
 	public String getDescrServ() {

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import uni.innovadores.uniservicesonline.R;
@@ -63,7 +65,7 @@ public class ServiciosAdapter extends BaseAdapter {
 
 			Servicios srv = serviciosItems.get(position);
 
-			//Picasso.with(convertView.getContext()).load(srv.getThumbnailUrl()).into(IMGServicio);
+			Picasso.with(convertView.getContext()).load("http://uniservices.online/app/img/"+srv.getIMG()).into(IMGServicio);
 
 			NServicio.setText(srv.getNombreServ());
 			DServicio.setText(srv.getDescrServ());

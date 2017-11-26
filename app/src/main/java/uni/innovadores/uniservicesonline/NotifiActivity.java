@@ -2,24 +2,56 @@ package uni.innovadores.uniservicesonline;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.firebase.messaging.FirebaseMessaging;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import uni.innovadores.uniservicesonline.adapters.CustomListNotifyAdapter;
+import uni.innovadores.uniservicesonline.models.Notify;
 
 public class NotifiActivity extends AppCompatActivity implements View.OnClickListener {
 
 	private Button Bthome, BtCat, BtNotif, BtFav, BtPerfil;
 	ConnectivityManager cm;
+	JSONArray jsonArray;
+	String StringJsonArray;
+
+	private List<Notify> notifyList = new ArrayList<Notify>();
+	private ListView listView;
+	private CustomListNotifyAdapter adapter;
+	SharedPreferences prefs;
+	SharedPreferences.Editor editor;
+	String js;
+	String msg;
+	String title;
+	JSONObject obj;
+	JSONObject store;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_notifi);
+
+		FirebaseMessaging.getInstance().subscribeToTopic("global");
 
 		final Animation animationScale = AnimationUtils.loadAnimation(this, R.anim.scale);
 		View network_CK = findViewById(R.id.network_check);
@@ -43,6 +75,30 @@ public class NotifiActivity extends AppCompatActivity implements View.OnClickLis
 		BtNotif.setOnClickListener(this);
 		BtFav.setOnClickListener(this);
 		BtPerfil.setOnClickListener(this);
+
+		jsonArray = new JSONArray();
+		obj = new JSONObject();
+
+		Intent intent = getIntent();
+
+		msg = intent.getStringExtra("message");
+		title = intent.getStringExtra("title");
+
+
+		listView = findViewById(R.id.list_notifi);
+
+		prefs = getPreferences(MODE_PRIVATE);
+		editor = prefs.edit();
+		editor.apply();
+
+
+		//Log.d("Shared Final - ", jsonArray2.toString());
+
+
+
+		//Log.d("Shared Final - ", prefs.getString("notifyH", "Notify"));
+
+
 	}
 
 	@Override
@@ -58,8 +114,14 @@ public class NotifiActivity extends AppCompatActivity implements View.OnClickLis
 		}
 
 		if(view.getId() == R.id.btn_notif){
-			//Intent it_main = new Intent(getApplicationContext(), NotifiActivity.class);
-			//startActivity(it_main);
+//			try {
+//				makJsonObject(title, msg);
+//				//Log.d("JsonArray Final - ", StringJsonArray);
+//
+//
+//			} catch (JSONException e) {
+//				e.printStackTrace();
+//			}
 		}
 
 		if(view.getId() == R.id.btn_favo){
@@ -92,6 +154,43 @@ public class NotifiActivity extends AppCompatActivity implements View.OnClickLis
 		}
 		return false;
 	}
+
+	public String makJsonObject(String titulo, String cuerpo)
+			throws JSONException {
+
+		//try {
+			obj.put("titulo", titulo);
+			obj.put("cuerpo", cuerpo);
+
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
+		//jsonArray.put(store);
+		//jsonArray.put(store);
+		jsonArray.put(obj);
+		Log.d("Final - ", jsonArray.toString());
+		StringJsonArray = jsonArray.toString();
+		editor.putString("notifyH", StringJsonArray);
+		editor.commit();
+		Toast.makeText(this,prefs.getString("notifyH", ""),Toast.LENGTH_LONG).show();
+
+		try {
+			store = new JSONObject(prefs.getString("notifyH", "Notify"));
+			JSONArray jsonArray2 = new JSONArray(store);
+			Log.d("Shared Final - ", jsonArray2.toString());
+
+			adapter = new CustomListNotifyAdapter(this, notifyList);
+			listView.setAdapter(adapter);
+
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		return StringJsonArray;
+	}
+
 
 	public void onBackPressed() {
 		//super.onBackPressed();

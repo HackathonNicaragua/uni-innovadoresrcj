@@ -138,7 +138,7 @@ public class ServiciosActivity extends AppCompatActivity implements View.OnClick
                                     Servicios srv = new Servicios();
                                     srv.setNombreServ(obj.getString("NombreServicio"));
                                     srv.setDescrServ(obj.getString("DescripcionServicio"));
-                                    //srv.setCategoriaServ(obj.getString("Categoria"));
+                                    srv.setIMG(obj.getString("ImagenServicio"));
 
                                     srv.setPrecioServ(obj.getDouble("PrecioBase"));
                                     srv.setPuntuacion(obj.getDouble("puntuacion"));
@@ -185,7 +185,7 @@ public class ServiciosActivity extends AppCompatActivity implements View.OnClick
                             Servicios srv = new Servicios();
                             srv.setNombreServ(obj.getString("NombreServicio"));
                             srv.setDescrServ(obj.getString("DescripcionServicio"));
-                            //srv.setCategoriaServ(obj.getString("Categoria"));
+                            srv.setIMG(obj.getString("ImagenServicio"));
 
                             srv.setPrecioServ(obj.getDouble("PrecioBase"));
                             srv.setPuntuacion(obj.getDouble("puntuacion"));

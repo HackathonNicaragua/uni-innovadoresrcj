@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 						if(response.contentEquals("Inicio Correcto")){
 							OcultarPDialog();
 							Toast.makeText(LoginActivity.this,"Bienvenido!",Toast.LENGTH_LONG).show();
-							Intent it_main = new Intent(getApplicationContext(), CategoriasActivity.class);
+							Intent it_main = new Intent(getApplicationContext(), MainActivity.class);
 							startActivity(it_main);
 							EdtPass.setText("");
 							EdtUser.setText("");
@@ -157,7 +157,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 		}
 
 		if(view.getId() == R.id.btn_login_local){
-			Intent it_main = new Intent(getApplicationContext(), CategoriasActivity.class);
+			Intent it_main = new Intent(getApplicationContext(), MainActivity.class);
 			startActivity(it_main);
 		}
 	}
