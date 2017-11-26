@@ -6,8 +6,9 @@ if(isset($_SESSION['user'])) {
         ?>
 
         <?php
-         $consulta1="select idCategoria,nombreCategoria FROM categorias";
-          $categoria=$dbconfig->query($consulta1);
+         $consulta3="select idCategoria, nombreCategoria from categorias";
+          $categorias=$dbconfig->query($consulta3);
+
         ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@ if(isset($_SESSION['user'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Uniservices</title>
-    <link rel="shortcut icon" href="../imagenes/logoUNI.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../imagenes/icono.ico" type="image/x-icon">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/estilo.css" rel="stylesheet">
     <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -37,7 +38,7 @@ if(isset($_SESSION['user'])) {
             <div class="row">
               <!-- Parte Superior -->
                 <div class="col-lg-12">
-                        <div class="col-md-3"><img src="../imagenes/logo.png" width="80" height="80" class="img-responsive"></div>
+                  <div class="col-md-3"><img src="../imagenes/logouniservicios.png" width="150" height="100" class="img-responsive"></div>
                              <div class="col-md-6">                      
                                <h2>Sistema Administrativo Uniservices</h2>                   
                         </div>
@@ -71,7 +72,7 @@ if(isset($_SESSION['user'])) {
             <div class="row">
                    <div class="col-md-1"><h4>Buscar:</h4></div>
                    <div class="col-md-5">
-                   <input type="text" name="s" id="bs-prod" class="form-control" placeholder="Escribir el nombre del Cliente">
+                   <input type="text" name="s" id="bs-prod" class="form-control" placeholder="Escribir el nombre del Servicio">
                    </div>
                     <div class="col-md-6">
                       <button id="nuevo-producto" class="botonOscuro"> <i class="glyphicon glyphicon-plus"></i> Nuevo Servicio</button> 
@@ -132,7 +133,7 @@ if(isset($_SESSION['user'])) {
                          <div class="col-md-10">
                        <select class="form-control" id="categoria" name="categoria">
                      <?php 
-                          while($fila=mysql_fetch_row($categoria)){
+                          while($fila=mysqli_fetch_row($categorias)){
                           echo "<option value='".$fila['0']."'>".$fila['1']."</option>";
                           }
                           ?>
@@ -144,7 +145,7 @@ if(isset($_SESSION['user'])) {
         <div class="col-md-10"><input type="number" class="form-control" id="puntuacion" name="puntuacion" required="true" maxlength="50"></div>
          </div><br>
 
-        <div class="form-group"> <label for="correo" class="col-md-2 control-label">Precio Base:</label>
+        <div class="form-group"> <label for="correo" class="col-md-2 control-label">Precio:</label>
         <div class="col-md-10"><input type="emai" class="form-control" id="precio" name="precio" required="true" maxlength="50"></div>
          </div><br>
 

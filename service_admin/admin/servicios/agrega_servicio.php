@@ -4,22 +4,25 @@ include('../conexion.php');
 
 $id = $_POST['id-registro'];
 $proceso = $_POST['pro'];
-$nombre = $_POST['nombres'];
-$apellido = $_POST['apellidos'];
-$cedula = $_POST['cedula'];
-$correo = $_POST['correo'];
-$telefono = $_POST['telefono'];
+$nombre = $_POST['servicio'];
+$descripcion = $_POST['descripcion'];
+$imagen = $_POST['imagen'];
+$categoria= $_POST['categoria'];
+$puntuacion = $_POST['puntuacion'];
+$precio = $_POST['precio'];
 $estado = $_POST['estado'];
 $observaciones = $_POST['observaciones'];
 
 switch($proceso){
-	case 'Registro': $dbconfig->query("INSERT INTO servicios (NombreServicio, DescripcionServicio, ImagenServicio, idCategoria, puntuacion, PrecioBase estadoS, observacionesC) VALUES('$nombre','$apellido','$cedula','$telefono','$correo','$estado','$observaciones')");
+	case 'Registro': $dbconfig->query("INSERT INTO servicios (NombreServicio, DescripcionServicio, ImagenServicio, idCategoria, puntuacion, PrecioBase, estadoS, observacionesC) VALUES('$nombre','$descripcion','$imagen','$categoria','$puntuacion','$precio','$estado','$observaciones')");
 
 	break;
-	case 'Edicion': $dbconfig->query("UPDATE servicios SET nombresA = '$nombre', apellidosA = '$apellido', cedulaA = '$cedula', telefonoA = '$telefono', correoA = '$correo', estadoA = '$estado', observacionesA = '$observaciones' where idAfiliado = '$id'"); 
+	case 'Edicion': $dbconfig->query("UPDATE servicios SET NombreServicio = '$nombre', DescripcionServicio = '$descripcion', ImagenServicio = '$imagen', idCategoria = '$categoria', puntuacion = '$puntuacion', PrecioBase = '$precio', estadoS = '$estado', observacionesC = '$observaciones' where idAfiliado = '$id'"); 
 	break;
    }
-    $registro = $dbconfig->query("SELECT * FROM afiliados ORDER BY idAfiliado ASC");
+    $registro = $dbconfig->query("select servicios.idServicio as id, servicios.NombreServicio  as servicio, servicios.DescripcionServicio  as descripcion, servicios.ImagenServicio as imagen,categorias.nombreCategoria  as categoria, servicios.puntuacion as puntuacion, servicios.precioBase as precio,
+servicios.estados as estado, servicios.observacionesC as observaciones  
+from servicios inner join categorias on servicios.idCategoria =categorias.idCategoria");
 
     echo '<table class="table table-striped table-condensed table-hover">
         	          <tr>

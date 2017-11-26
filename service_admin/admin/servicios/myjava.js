@@ -129,13 +129,14 @@ function editarRegistro(id){
 				$('#edi').show();
 				$('#pro').val('Edicion');
 				$('#id-registro').val(id);
-				$('#nombres').val(datos[0]);
-				$('#apellidos').val(datos[1]);
-				$('#cedula').val(datos[2]);
-				$('#telefono').val(datos[3]);
-				$('#correo').val(datos[4]);
-				$('#estado').val(datos[5]);
-				$('#observaciones').val(datos[6]);
+				$('#servicio').val(datos[0]);
+				$('#descripcion').val(datos[1]);
+				$('#imagen').val(datos[2]);
+				$('#categoria').val(datos[3]);
+				$('#puntuacion').val(datos[4]);
+				$('#precio').val(datos[5]);
+				$('#estado').val(datos[6]);
+				$('#observaciones').val(datos[7]);
 				$('#registra-datos').modal({
 					show:true,
 					backdrop:'static'
