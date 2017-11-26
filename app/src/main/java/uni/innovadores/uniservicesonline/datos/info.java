@@ -8,6 +8,9 @@ public class info {
 	//Link de registro de token php
 	public static String RegisterURL = "http://uniservices.online/app/register.php";
 
+	//Link de webservices
+	public static String LOGIN_URL = "http://uniservices.online/servApp/appFunc.php";
+
 	//Tema de firebase
 	public static String TopicSubscribe = "global";
 }

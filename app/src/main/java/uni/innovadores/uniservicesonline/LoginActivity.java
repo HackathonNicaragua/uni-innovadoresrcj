@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,12 +18,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import uni.innovadores.uniservicesonline.datos.info;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-	private static final String LOGIN_URL = "http://uniservices.online/servApp/appFunc.php";
+	//Declarando Variables y controles
 
 	public static final String KEY_USERNAME = "username";
 	public static final String KEY_PASSWORD = "password";
@@ -35,6 +38,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
+		//Referenciando los controles desde el layout
+
 		EdtUser = findViewById(R.id.edt_user);
 		EdtPass = findViewById(R.id.edt_pass);
 		BtLogin = findViewById(R.id.btn_login);
@@ -44,24 +49,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 	}
 
 
+	//Metodo para inicio de secion usando la libreria volley
 	private void LoginUser(){
+		//Se muestra un ProgressDialog y se declaran las variables username y password
 		pDialog = new ProgressDialog(this);
 		pDialog.setMessage("Cargando...");
 		pDialog.show();
 		final String username = EdtUser.getText().toString().trim();
 		final String password = EdtPass .getText().toString().trim();
 
-		StringRequest stringRequest = new StringRequest(Request.Method.POST, LOGIN_URL+"?username="+username+"&passwd="+password,
+		//Enviando solicitud http post para obtener resultado del login segun los parametos de los editext
+		StringRequest stringRequest = new StringRequest(Request.Method.POST, info.LOGIN_URL+"?username="+username+"&passwd="+password,
 				new Response.Listener<String>() {
 					@Override
 					public void onResponse(String response) {
-						if(response.isEmpty()){
-							Toast.makeText(LoginActivity.this,"No hay datos.",Toast.LENGTH_LONG).show();
-						}
+
 						if(response.contentEquals("Inicio Correcto")){
 							OcultarPDialog();
 							Toast.makeText(LoginActivity.this,"Bienvenido!",Toast.LENGTH_LONG).show();
-							Intent it_main = new Intent(getApplicationContext(), MainActivity.class);
+							Intent it_main = new Intent(getApplicationContext(), ServiciosActivity.class);
 							startActivity(it_main);
 							EdtPass.setText("");
 							EdtUser.setText("");
@@ -76,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 						}
 
 						Log.i("Repuesta: ", response);
-						//hidePDialog();
+						OcultarPDialog();
 
 					}
 				},
@@ -105,11 +111,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 	@Override
 	public void onClick(View view) {
+		//COndicionando click de botones y links
 		if(view.getId() == R.id.btn_login){
-			LoginUser();
+
+			//Controlando si los editex estan vacios
+			if(TextUtils.isEmpty(EdtUser.getText().toString()) && TextUtils.isEmpty(EdtPass.getText().toString())) {
+				EdtUser.setError("Este campo es requerido.");
+				EdtPass.setError("Este campo es requerido.");
+				return;
+			}else{
+				//Ejecuta el metodo de inicio de sesion
+				LoginUser();
+			}
+
+
 		}
 	}
 
+	//Funcion para ocultar el proggressDialog de login.
 	private void OcultarPDialog() {
 		if (pDialog != null) {
 			pDialog.dismiss();

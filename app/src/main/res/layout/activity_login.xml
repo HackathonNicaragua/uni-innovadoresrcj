@@ -30,7 +30,7 @@
         android:layout_below="@+id/ContLogo"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="2dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/login_box"
         android:orientation="vertical"
         android:paddingLeft="22dp"
@@ -43,7 +43,9 @@
             android:layout_marginTop="60dp"
             android:ems="10"
             android:hint="e-mail"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"/>
 
         <EditText
             android:id="@+id/edt_pass"
@@ -52,12 +54,15 @@
             android:layout_marginTop="30dp"
             android:ems="10"
             android:hint="***********"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"/>
     </LinearLayout>
 
     <android.support.percent.PercentRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/textView"
         android:layout_below="@+id/linearLayout"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
@@ -68,11 +73,31 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="15dp"
             android:background="@color/colorAccent"
             android:text="Iniciar Sesion"
             android:textColor="#ffffff"/>
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="Aún no estas registraado? - Registrate AQUI!"/>
+
     </android.support.percent.PercentRelativeLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Todos los derechos reservados 2017"
+        android:textColor="#ffffff"/>
 
 </RelativeLayout>

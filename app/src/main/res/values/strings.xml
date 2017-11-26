@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">UniServicesOnline</string>
+    <string name="logo_text">UniServices</string>
+    <string name="txt_networCHK">No se ha podido conectar internet, algunas fuciones no estaran disponibles. Asegurece de tener una conexion activa.</string>
+    <string name="imgnchk">IMGNCHK</string>
+    <string name="init_precio">Desde: C$</string>
+    <string name="demo_SrvDesc">Aqui va una descripccion del servicio</string>
+    <string name="demo_serv_precio">Desde: C$1500</string>
+    <string name="demo_srv_nombre">Nombre del Servicio</string>
 </resources>

@@ -22,6 +22,7 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     @Override
     public void onTokenRefresh() {
+        //Genera el token ara firebase
         String token = FirebaseInstanceId.getInstance().getToken();
         Log.d("Token",token);
         registerToken(token);
@@ -33,7 +34,7 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
                 .add("token",token)
                 .build();
         Request request = new Request.Builder()
-                .url(info.RegisterURL) //aqui se envia el token y se registra en la base de datos
+                .url(info.RegisterURL) //Se envia el token y se registra en la base de datos
                 .post(requestBody)
                 .build();
         try {
