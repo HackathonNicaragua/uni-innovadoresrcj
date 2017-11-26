@@ -80,6 +80,11 @@ public class ContactarActivity extends AppCompatActivity implements View.OnClick
 
 		}
 		if(view.getId() == R.id.btn_share){
+			Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+			sharingIntent.setType("text/plain");
+			sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Pomares Al Bat");
+			sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
+			startActivity(Intent.createChooser(sharingIntent, "Compartir via"));
 
 		}
 

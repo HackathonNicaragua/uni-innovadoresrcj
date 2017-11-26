@@ -53,11 +53,11 @@ public class ServiciosAdapter extends BaseAdapter {
 		if (convertView == null)
 			convertView = inflater.inflate(R.layout.servicios_row, null);
 
-		TextView NServicio = convertView.findViewById(R.id.tv_name_cat);
-		TextView DServicio = convertView.findViewById(R.id.tv_descr_cat);
+		TextView NServicio = convertView.findViewById(R.id.tv_name_serv);
+		TextView DServicio = convertView.findViewById(R.id.tv_descr_serv);
 		TextView precioServicio = convertView.findViewById(R.id.tv_precio);
 		RatingBar puntServicio = convertView.findViewById(R.id.rtb_punt);
-		ImageView IMGServicio = convertView.findViewById(R.id.img_cat);
+		ImageView IMGServicio = convertView.findViewById(R.id.img_serv);
 
 		try{
 
@@ -70,8 +70,7 @@ public class ServiciosAdapter extends BaseAdapter {
 			String PreC = activity.getString(R.string.init_precio)+String.valueOf(srv.getPrecioServ());
 			precioServicio.setText(PreC);
 			puntServicio.setRating(Float.parseFloat(String.valueOf(srv.getPuntuacion())));
-			//img1.setText(srv.getThumbnailUrl());
-			//img2.setText(srv.getThumbnailUrl2());
+
 		}catch(Exception e){
 			System.out.print(e+"!");
 		}

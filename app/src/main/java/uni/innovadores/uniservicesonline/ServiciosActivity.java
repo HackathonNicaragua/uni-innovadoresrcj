@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -41,6 +42,7 @@ public class ServiciosActivity extends AppCompatActivity {
     RequestQueue queue;
     private GifTextView loader;
     ConnectivityManager cm;
+    private String ID_Cat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,9 @@ public class ServiciosActivity extends AppCompatActivity {
 
         final Animation animationScale = AnimationUtils.loadAnimation(this, R.anim.scale);
         View network_CK = findViewById(R.id.network_check);
+
+        Intent intent = getIntent();
+        ID_Cat = intent.getStringExtra("idCat");
 
         //comprobando conexion a internet
         if (isOnline()){
@@ -75,6 +80,8 @@ public class ServiciosActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
+                TextView ID_Cat = view.findViewById(R.id.tx_cat_id);
+
                 Intent it_main = new Intent(getApplicationContext(), ContactarActivity.class);
                 startActivity(it_main);
             }
@@ -87,8 +94,7 @@ public class ServiciosActivity extends AppCompatActivity {
     //Cargando lista de servicios (prueba)
     public void CargarServicios(){
 
-        //String url = info.Serv_URL+"?run=ObtenerServicios";
-        String url ="http://hostingnica.net/apps/uniservices/test/funciones.php?run=ObtenerServicios";
+        String url = info.Serv_URL+"?idCattegoria="+ID_Cat;
 
         StringRequest stringRequest = new StringRequest( url,
                 new Response.Listener<String>() {
@@ -117,10 +123,10 @@ public class ServiciosActivity extends AppCompatActivity {
                                     JSONObject obj = jsonArray.getJSONObject(i);
                                     Servicios srv = new Servicios();
                                     srv.setNombreServ(obj.getString("NombreServicio"));
-                                    srv.setDescrServ(obj.getString("DescrServ"));
-                                    srv.setCategoriaServ(obj.getString("Categoria"));
+                                    srv.setDescrServ(obj.getString("DescripcionServicio"));
+                                    //srv.setCategoriaServ(obj.getString("Categoria"));
 
-                                    srv.setPrecioServ(obj.getDouble("CostoServ"));
+                                    srv.setPrecioServ(obj.getDouble("PrecioBase"));
                                     srv.setPuntuacion(obj.getDouble("puntuacion"));
 
                                     serviciosList.add(srv);
@@ -164,10 +170,10 @@ public class ServiciosActivity extends AppCompatActivity {
                             JSONObject obj = jsonArray.getJSONObject(i);
                             Servicios srv = new Servicios();
                             srv.setNombreServ(obj.getString("NombreServicio"));
-                            srv.setDescrServ(obj.getString("DescrServ"));
-                            srv.setCategoriaServ(obj.getString("Categoria"));
+                            srv.setDescrServ(obj.getString("DescripcionServicio"));
+                            //srv.setCategoriaServ(obj.getString("Categoria"));
 
-                            srv.setPrecioServ(obj.getDouble("CostoServ"));
+                            srv.setPrecioServ(obj.getDouble("PrecioBase"));
                             srv.setPuntuacion(obj.getDouble("puntuacion"));
 
                             serviciosList.add(srv);

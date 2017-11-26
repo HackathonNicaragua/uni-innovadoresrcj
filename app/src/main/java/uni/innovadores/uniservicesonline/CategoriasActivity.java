@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -82,7 +83,11 @@ public class CategoriasActivity extends AppCompatActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 									long id) {
+
+				TextView ID_Cat = view.findViewById(R.id.tx_cat_id);
+
 				Intent it_main = new Intent(getApplicationContext(), ServiciosActivity.class);
+				it_main.putExtra("idCat", ID_Cat.getText().toString());
 				startActivity(it_main);
 			}
 		});
