@@ -1,14 +1,19 @@
 package uni.innovadores.uniservicesonline;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -30,21 +35,48 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 	public static final String KEY_USERNAME = "username";
 	public static final String KEY_PASSWORD = "password";
 	private EditText EdtUser, EdtPass;
-	private Button BtLogin, BtReg;
+	private Button BtLogin, BtLocal;
 	private ProgressDialog pDialog;
+	private TextView TxRegistrar;
+	ConnectivityManager cm;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
+		final Animation animationScale = AnimationUtils.loadAnimation(this, R.anim.scale);
+		View network_CK = findViewById(R.id.network_check);
+
 		//Referenciando los controles desde el layout
 
 		EdtUser = findViewById(R.id.edt_user);
 		EdtPass = findViewById(R.id.edt_pass);
+		TxRegistrar = findViewById(R.id.txt_register);
 		BtLogin = findViewById(R.id.btn_login);
-		//BtReg = findViewById(R.id.btn_reg);
+		BtLocal = findViewById(R.id.btn_login_local);
+
+		//BtLogin.setVisibility(View.VISIBLE);
+		BtLocal.setVisibility(View.GONE);
+
 		BtLogin.setOnClickListener(this);
+
+		BtLocal.setOnClickListener(this);
+
+		//comprobando conexion a internet
+		if (isOnline()){
+			network_CK.setVisibility(View.GONE);
+		}else{
+			network_CK.setVisibility(View.VISIBLE);
+			network_CK.startAnimation(animationScale);
+			BtLogin.setVisibility(View.GONE);
+			TxRegistrar.setVisibility(View.GONE);
+			BtLocal.setVisibility(View.VISIBLE);
+			EdtUser.setEnabled(false);
+			EdtPass.setEnabled(false);
+			EdtUser.setHintTextColor(getResources().getColor(R.color.colorSecondaryText));
+			EdtPass.setHintTextColor(getResources().getColor(R.color.colorSecondaryText));
+		}
 
 	}
 
@@ -123,8 +155,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 				//Ejecuta el metodo de inicio de sesion
 				LoginUser();
 			}
+		}
 
-
+		if(view.getId() == R.id.btn_login_local){
+			Intent it_main = new Intent(getApplicationContext(), ServiciosActivity.class);
+			startActivity(it_main);
 		}
 	}
 
@@ -135,4 +170,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 			pDialog = null;
 		}
 	}
+
+	//Metodo para comprobar la conexion a internet
+	public boolean isOnline() {
+		cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+		if (cm != null) {
+			if (cm.getActiveNetworkInfo() != null
+					&& cm.getActiveNetworkInfo().isAvailable()
+					&& cm.getActiveNetworkInfo().isConnected()) {
+
+				return true;
+			} else {
+
+				Log.i("Estado de red: ", "Conexion a internet fallida");
+
+			}
+		}
+		return false;
+	}
+
 }

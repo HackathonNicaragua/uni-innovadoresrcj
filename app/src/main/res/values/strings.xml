@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">UniServicesOnline</string>
     <string name="logo_text">UniServices</string>
-    <string name="txt_networCHK">No se ha podido conectar internet, algunas fuciones no estaran disponibles. Asegurece de tener una conexion activa.</string>
+    <string name="txt_networCHK">No se ha podido conectar internet, algunas fuciones no estaran disponibles. Asegúrese de tener una conexion activa.</string>
     <string name="imgnchk">IMGNCHK</string>
     <string name="init_precio">Desde: C$</string>
     <string name="demo_SrvDesc">Aqui va una descripccion del servicio</string>
@@ -13,4 +13,5 @@
     <string name="txt_btnLogin">Iniciar Sesion</string>
     <string name="txt_registrate_aqui">Aún no estas registraado? - Registrate AQUI!</string>
     <string name="txt_copyR">Todos los derechos reservados 2017</string>
+    <string name="txt_btnLogin_local">Usar sin conexion</string>
 </resources>
