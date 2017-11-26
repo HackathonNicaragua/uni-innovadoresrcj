@@ -27,7 +27,7 @@ $(function(){
 
 //funcion para agregar Registro
 function agregarRegistro(){
-	var url = 'afiliados/agrega_afiliado.php';
+	var url = 'usuarios/agrega_usuario.php';
 	$.ajax({
 		type:'POST',
 		url:url,
@@ -63,7 +63,7 @@ function eliminarRegistro(id){
           };
           $.ajax(
           {
-            url : "afiliados/elimina_afiliado.php",
+            url : "usuarios/elimina_usuario.php",
             type: "POST",
             data : value,
             success: function(registro)
@@ -118,7 +118,7 @@ swal({
 //funcion para modificar Registro
 function editarRegistro(id){
 	$('#formulario')[0].reset();
-	var url = 'afiliados/edita_afiliado.php';
+	var url = 'usuarios/edita_usuario.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -130,12 +130,13 @@ function editarRegistro(id){
 				$('#pro').val('Edicion');
 				$('#id-registro').val(id);
 				$('#nombres').val(datos[0]);
-				$('#apellidos').val(datos[1]);
-				$('#cedula').val(datos[2]);
-				$('#telefono').val(datos[3]);
-				$('#correo').val(datos[4]);
-				$('#estado').val(datos[5]);
-				$('#observaciones').val(datos[6]);
+				$('#email').val(datos[1]);
+				$('#user').val(datos[2]);
+				$('#pass').val(datos[3]);
+				$('#token').val(datos[4]);
+				$('#nivel').val(datos[5]);
+				$('#estado').val(datos[6]);
+				$('#observaciones').val(datos[7]);
 				$('#registra-datos').modal({
 					show:true,
 					backdrop:'static'
@@ -147,7 +148,7 @@ function editarRegistro(id){
 }
 //funcion para paginar los Registro
 function pagination(partida){
-	var url = 'afiliados/paginar_afiliado.php';
+	var url = 'usuarios/paginar_usuario.php';
 	$.ajax({
 		type:'POST',
 		url:url,
