@@ -751,6 +751,7 @@ li {
 }
 .feature-section {
     padding-top: 100px;
+	background-color: #f7f7f7;
 }
 
 .feature, .feature-2, .feature-3 {
