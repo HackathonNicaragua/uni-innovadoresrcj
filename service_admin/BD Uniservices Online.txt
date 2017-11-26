@@ -1,0 +1,95 @@
+create database uniserv_BD;
+use uniserv_BD;
+
+create table afiliados(
+idAfiliado int primary key auto_increment,
+nombresA varchar (50) not null,
+apellidosA varchar (50) not null,
+cedulaA varchar (16) not null,
+telefonoA varchar (8) not null,
+correoA varchar (50) not null,
+estadoA varchar (1) not null,
+observacionesA varchar (200) not null
+)Engine=InnoDB;
+
+create table clientes(
+idCliente int primary key auto_increment,
+nombresC varchar (50) not null,
+apellidosC varchar (50) not null,
+cedulaC varchar (16) not null,
+telefonoC varchar (8) not null,
+correoC varchar (50) not null,
+estadoC varchar (1) not null,
+observacionesC varchar (200) not null
+)Engine=InnoDB;
+
+create table categorias(
+idCategoria int primary key auto_increment,
+nombreCategoria varchar (50) not null,
+estado varchar (1) not null,
+observacionesC varchar (200) not null
+)Engine=InnoDB;
+
+create table subcategorias(
+idSubcategoria int primary key auto_increment,
+idCategoria int not null,
+nombreSubcategoria varchar (50) not null,
+estado varchar (1) not null,
+observacionesC varchar (200) not null,
+FOREIGN KEY (idCategoria) REFERENCES categorias(idCategoria),
+)Engine=InnoDB;
+
+create table usuarios(
+idUsuario int primary key auto_increment,
+nombreCompleto varchar (50) not null,
+email varchar(50) not null,
+user varchar (50) not null,
+pass varchar (60) not null,
+token varchar(600) default '0',
+nivel varchar (1) not null,
+estadoU varchar (1) not null,
+observacionesC varchar (200) not null
+)Engine=InnoDB;
+
+create table servicios(
+idServicio int primary key auto_increment,
+NombreServicio varchar (100) not null,
+DescripcionServicio varchar (100) not null,
+idCategoria int not null,
+puntuacion float not null,
+precioBase float not null,
+estadoS varchar (1) not null,
+observacionesC varchar (200) not null,
+FOREIGN KEY (idCategoria) REFERENCES categorias(idCategoria)
+)Engine=InnoDB;
+
+create table afiliacion(
+idAfiliacion int primary key auto_increment,
+idAfiliado int not null,
+idServicio int not null,
+fechaAfiliacion date not null,
+CostoAfiliacion int not null,
+DescripcionAfiliacion varchar (100) not null,
+estadoA varchar (1) not null,
+observacionesC varchar (200) not null,
+FOREIGN KEY (idAfiliado) REFERENCES afiliados(idAfiliado),
+FOREIGN KEY (idServicio) REFERENCES servicios(idServicio)
+)Engine=InnoDB;
+
+create table SolicitudServicio(
+idSolicitud int primary key auto_increment,
+idServicio int not null,
+idCliente int not null,
+fechaSolicitud datetime not null,
+estadoA varchar (1) not null,
+observaciones varchar (200) not null,
+FOREIGN KEY (idServicio) REFERENCES servicios(idServicio),
+FOREIGN KEY (idCliente) REFERENCES clientes(idCliente)
+)Engine=InnoDB;
+
+creata table puntuaciones(
+idPuntuacion int primary key auto_increment,
+
+)Engine=InnoDB;
+
+
